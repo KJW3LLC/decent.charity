@@ -14,6 +14,7 @@ series:
   part: 3
   total: 4
   previous: "how-to-read-the-bible-when-you-do-not-know-where-to-start"
+  next: "letting-scripture-shape-your-decisions"
 ---
 
 **Learning to Pray with Honesty and Hope**
