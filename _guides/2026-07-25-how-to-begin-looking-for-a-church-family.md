@@ -13,6 +13,7 @@ series:
   name: "Finding a Church Family"
   part: 1
   total: 4
+  next: "what-to-look-for-in-a-healthy-congregation"
 ---
 
 **How to Begin Looking for a Church Family**  
