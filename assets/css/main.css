@@ -113,73 +113,12 @@ body {
 }
 
 .hero-title {
-    display: grid;
-    grid-template-columns: max-content 7.8ch;
-    column-gap: 0.45em;
-    justify-content: center;
-    align-items: baseline;
-    width: fit-content;
     margin: 0 auto 1rem;
-    transform: translateX(0.65em);
     font-size: 4rem;
     line-height: 1;
     font-weight: 800;
+    white-space: nowrap;
     text-shadow: 0 3px 18px rgba(0, 0, 0, 0.42);
-}
-
-.hero-title-static {
-    text-align: right;
-    transform: translateY(-0.15em);
-}
-
-.hero-title-rotator {
-    position: relative;
-    display: block;
-    min-width: 0;
-    height: 1.05em;
-    text-align: left;
-    overflow: hidden;
-}
-
-.hero-title-word {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transform: translateY(0.48em);
-    animation: heroWordCycle 12s ease-in-out infinite;
-    will-change: transform, opacity;
-}
-
-.hero-title-word:nth-child(2) {
-    animation-delay: 4s;
-}
-
-.hero-title-word:nth-child(3) {
-    animation-delay: 8s;
-}
-
-@keyframes heroWordCycle {
-    0% {
-        opacity: 0;
-        transform: translateY(0.48em);
-    }
-    8.333% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    33.333% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    41.667% {
-        opacity: 0;
-        transform: translateY(-0.48em);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-0.48em);
-    }
 }
 
 .hero-description {
@@ -190,16 +129,6 @@ body {
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .hero-title-word {
-        animation: none;
-    }
-
-    .hero-title-word:first-child {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Filters */
 .filters {
@@ -686,8 +615,6 @@ body {
     }
 
     .hero-title {
-        grid-template-columns: max-content 7.8ch;
-        column-gap: 0.32em;
         font-size: 2.5rem;
     }
 
@@ -750,11 +677,7 @@ body {
     }
 
     .hero-title {
-        grid-template-columns: max-content 6.8ch;
-        column-gap: 0.28em;
-        width: fit-content;
-        transform: translateX(0.2em);
-        font-size: clamp(1.62rem, 9vw, 2rem);
+        font-size: 1.75rem;
     }
 
 
