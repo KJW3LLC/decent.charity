@@ -14,6 +14,7 @@ series:
   part: 2
   total: 4
   previous: "how-to-begin-looking-for-a-church-family"
+  next: "questions-to-ask-before-joining-a-church"
 ---
 
 **What to Look For in a Healthy Congregation**  
