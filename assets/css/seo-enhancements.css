@@ -145,19 +145,16 @@
     text-decoration: underline;
 }
 
-/* Mobile/Tablet - Hide fixed sidebar, show TOC at top of content */
+/* Mobile/Tablet - Hide contents sidebar */
 @media (max-width: 1023px) {
-    .guide-sidebar-fixed {
-        display: none; /* Hide fixed sidebar on mobile */
+    .guide-sidebar,
+    .guide-sidebar-fixed,
+    .table-of-contents {
+        display: none;
     }
 
     .guide-main-content {
         width: 100%;
-    }
-
-    /* TOC appears in mobile layout at top */
-    .toc-toggle {
-        display: flex; /* Show collapse button on mobile */
     }
 }
 
@@ -289,30 +286,7 @@
     }
 }
 
-/* Tablet - keep at top */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .table-of-contents {
-        max-width: 600px;
-        margin: 2rem auto;
-    }
-}
-
-/* Mobile TOC */
-@media (max-width: 767px) {
-    .table-of-contents {
-        padding: 1rem;
-        margin: 1.5rem 0;
-    }
-
-    .toc-title {
-        font-size: 1rem;
-    }
-
-    .toc-list li {
-        font-size: 0.875rem;
-        margin-bottom: 0.375rem;
-    }
-}
+/* Contents are hidden below desktop width. */
 
 
 /* ============================================

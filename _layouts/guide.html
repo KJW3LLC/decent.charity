@@ -8,7 +8,7 @@ layout: default
         {% include breadcrumbs.html %}
     </div>
 
-    <header class="guide-header">
+    <header class="guide-header{% if page.image %} has-guide-image{% endif %}"{% if page.image %} style="--guide-bg-image: url({{ page.image | relative_url }});"{% endif %}>
         <div class="container">
             <h1 class="guide-title">{{ page.title }}</h1>
             <div class="guide-meta">
@@ -25,15 +25,10 @@ layout: default
         </div>
     </header>
 
-    {% if page.image %}
-    <div class="guide-image">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy">
-        {% if page.image_credit %}
-        <p class="image-credit">
-            Photo by <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener">{{ page.image_credit }}</a>
-        </p>
-        {% endif %}
-    </div>
+    {% if page.image and page.image_credit %}
+    <p class="image-credit container">
+        Image by <a href="{{ page.image_credit_url }}" target="_blank" rel="noopener">{{ page.image_credit }}</a>
+    </p>
     {% endif %}
 
     <div class="guide-content container">
