@@ -14,6 +14,7 @@ series:
   part: 3
   total: 4
   previous: "what-to-look-for-in-a-healthy-congregation"
+  next: "how-to-become-part-of-a-church-community"
 ---
 
 **Questions to Ask Before Joining a Church**  
