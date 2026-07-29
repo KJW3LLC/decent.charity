@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const guideCards = document.querySelectorAll('.guide-card');
     const noResults = document.getElementById('no-results');
 
-    let currentCategory = 'food-pantries';
+    let currentCategory = 'all';
     let currentSearchTerm = '';
 
     // Filter by charity category
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tags = card.dataset.tags.toLowerCase();
 
             // Check category filter
-            const matchesCategory = category === currentCategory;
+            const matchesCategory = currentCategory === 'all' || category === currentCategory;
 
             // Check search filter
             const matchesSearch = currentSearchTerm === '' ||
