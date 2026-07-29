@@ -110,6 +110,28 @@ body {
 .hero-inner {
     position: relative;
     z-index: 1;
+    isolation: isolate;
+}
+
+.hero-inner::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: min(900px, 88vw);
+    height: 210px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(5, 30, 62, 0.56) 0%,
+        rgba(5, 30, 62, 0.46) 20%,
+        rgba(5, 30, 62, 0.28) 45%,
+        rgba(5, 30, 62, 0.12) 70%,
+        rgba(5, 30, 62, 0.04) 86%,
+        rgba(5, 30, 62, 0) 100%
+    );
 }
 
 .hero-title {
@@ -628,6 +650,11 @@ body {
         font-size: 1rem;
     }
 
+    .hero-inner::before {
+        width: 94vw;
+        height: 180px;
+    }
+
     .guides-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -684,6 +711,11 @@ body {
 
     .hero-title {
         font-size: 1.75rem;
+    }
+
+    .hero-inner::before {
+        width: 96vw;
+        height: 150px;
     }
 
 
