@@ -2,21 +2,21 @@
   {
     "title": "Feeding America: A Nationwide Network Working to End Hunger",
     "organization": "Feeding America",
-    "category": "food-pantries",
+    "category": "hunger",
     "source": "https://www.feedingamerica.org/about-us",
     "tags": ["hunger-relief", "food-banks", "national-network"]
   },
   {
     "title": "City Harvest: Rescuing Food for New York City Neighbors",
     "organization": "City Harvest",
-    "category": "food-pantries",
+    "category": "hunger",
     "source": "https://www.cityharvest.org/our-story/",
-    "tags": ["food-rescue", "new-york-city", "food-pantries"]
+    "tags": ["food-rescue", "new-york-city", "hunger-relief"]
   },
   {
     "title": "Food Bank For New York City: Food and Support Across Five Boroughs",
     "organization": "Food Bank For New York City",
-    "category": "food-pantries",
+    "category": "hunger",
     "source": "https://www.foodbanknyc.org/who-we-are/",
     "tags": ["food-security", "new-york-city", "community-support"]
   },
@@ -37,36 +37,85 @@
   {
     "title": "Meals on Wheels America: Nutrition and Connection for Older Adults",
     "organization": "Meals on Wheels America",
-    "category": "support-services",
+    "category": "hunger",
     "source": "https://www.mealsonwheelsamerica.org/about/",
     "tags": ["senior-support", "meal-delivery", "social-connection"]
   },
   {
     "title": "Habitat for Humanity: Building Access to Safe, Affordable Homes",
     "organization": "Habitat for Humanity",
-    "category": "shelters-and-housing",
+    "category": "shelter",
     "source": "https://www.habitat.org/about",
     "tags": ["affordable-housing", "homebuilding", "community-development"]
   },
   {
     "title": "Covenant House: Shelter and Support for Young People",
     "organization": "Covenant House",
-    "category": "shelters-and-housing",
+    "category": "shelter",
     "source": "https://www.covenanthouse.org/about-us",
     "tags": ["youth-homelessness", "emergency-shelter", "long-term-support"]
   },
   {
     "title": "Family Promise: Preventing and Ending Family Homelessness",
     "organization": "Family Promise",
-    "category": "shelters-and-housing",
+    "category": "shelter",
     "source": "https://familypromise.org/what-we-do/",
     "tags": ["family-homelessness", "shelter", "housing-stability"]
   },
   {
     "title": "Mercy Housing: Affordable Homes with Resident Support",
     "organization": "Mercy Housing",
-    "category": "shelters-and-housing",
+    "category": "shelter",
     "source": "https://www.mercyhousing.org/about/",
     "tags": ["affordable-housing", "resident-services", "housing-stability"]
+  },
+  {
+    "title": "Dress for Success: Clothing and Career Support for Women",
+    "organization": "Dress for Success",
+    "category": "clothing",
+    "source": "https://dressforsuccess.org/about-us/what-we-do/",
+    "tags": ["workplace-attire", "career-development", "economic-mobility"]
+  },
+  {
+    "title": "One Warm Coat: Sharing Warmth Through Community Coat Drives",
+    "organization": "One Warm Coat",
+    "category": "clothing",
+    "source": "https://www.onewarmcoat.org/about-us/",
+    "tags": ["coat-drives", "winter-clothing", "volunteerism"]
+  },
+  {
+    "title": "Soles4Souls: Turning Shoes and Clothing Into Opportunity",
+    "organization": "Soles4Souls",
+    "category": "clothing",
+    "source": "https://soles4souls.org/about-us/",
+    "tags": ["footwear", "clothing-donations", "economic-opportunity"]
+  },
+  {
+    "title": "Operation Warm: New Coats and Shoes for Children",
+    "organization": "Operation Warm",
+    "category": "clothing",
+    "source": "https://www.operationwarm.org/who-we-are/mission.html",
+    "tags": ["children", "winter-coats", "shoes"]
+  },
+  {
+    "title": "The Wardrobe: Addressing Clothing Insecurity for Work and Life",
+    "organization": "The Wardrobe",
+    "category": "clothing",
+    "source": "https://careerwardrobe.org/about/",
+    "tags": ["clothing-insecurity", "employment", "life-transitions"]
+  },
+  {
+    "title": "The Undies Project: Meeting a Basic Need With Dignity",
+    "organization": "The Undies Project",
+    "category": "clothing",
+    "source": "https://www.theundiesproject.org/our-story",
+    "tags": ["underwear", "basic-needs", "dignity"]
+  },
+  {
+    "title": "Cradles to Crayons: Everyday Essentials for Children",
+    "organization": "Cradles to Crayons",
+    "category": "clothing",
+    "source": "https://www.cradlestocrayons.org/what-we-do/our-history/",
+    "tags": ["children", "clothing-insecurity", "everyday-essentials"]
   }
 ]

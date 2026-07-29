@@ -2,7 +2,7 @@
 layout: guide
 title: "Family Promise: Preventing and Ending Family Homelessness"
 date: 2026-07-29
-category: shelters-and-housing
+category: shelter
 organization: "Family Promise"
 source: "https://familypromise.org/what-we-do/"
 tags: ["family-homelessness", "shelter", "housing-stability"]

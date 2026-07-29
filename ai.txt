@@ -6,7 +6,7 @@ Purpose: Help readers learn about charitable organizations and contribute time, 
 
 # Content Structure
 Content-Type: Source-grounded charity profiles
-Categories: Food Pantries, Support Services, Shelters and Housing
+Categories: Hunger, Support Services, Shelter, Clothing
 Required-Source: Every profile must include and use an official organization URL
 Format: Markdown profiles covering background, communities served, programs, involvement options, giving considerations, key takeaways, and sources
 

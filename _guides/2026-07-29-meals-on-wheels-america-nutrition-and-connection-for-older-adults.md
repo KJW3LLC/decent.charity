@@ -2,7 +2,7 @@
 layout: guide
 title: "Meals on Wheels America: Nutrition and Connection for Older Adults"
 date: 2026-07-29
-category: support-services
+category: hunger
 organization: "Meals on Wheels America"
 source: "https://www.mealsonwheelsamerica.org/about/"
 tags: ["senior-support", "meal-delivery", "social-connection"]

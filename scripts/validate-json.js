@@ -26,9 +26,10 @@ JSON_FILES.forEach(file => {
 
     if (file === 'topics.json') {
       const allowedCategories = new Set([
-        'food-pantries',
+        'hunger',
         'support-services',
-        'shelters-and-housing'
+        'shelter',
+        'clothing'
       ]);
 
       if (!Array.isArray(data) || data.length === 0) {

@@ -2,7 +2,7 @@
 layout: guide
 title: "Organization Profile Title"
 date: 2026-07-28
-category: food-pantries
+category: hunger
 organization: "Organization Name"
 source: "https://organization.example/about"
 tags: ["food-security", "community-support"]

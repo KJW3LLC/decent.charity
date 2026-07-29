@@ -73,7 +73,8 @@ function titleToSlug(title) {
     .replace(/^-|-$/g, '');
 }
 
-// Select a random unused organization topic.
+// Select a random category first, then a random unused topic in that category.
+// Avoid the category used most recently when another category is available.
 function selectNextTopic(topics, generatedTopics) {
   const unusedTopics = topics.filter(
     topic => !generatedTopics.includes(topic.title)
@@ -85,7 +86,21 @@ function selectNextTopic(topics, generatedTopics) {
     return topics[Math.floor(Math.random() * topics.length)];
   }
 
-  const selected = unusedTopics[Math.floor(Math.random() * unusedTopics.length)];
+  const availableCategories = [...new Set(unusedTopics.map(topic => topic.category))];
+  const lastGeneratedTitle = generatedTopics[generatedTopics.length - 1];
+  const lastGeneratedCategory = topics.find(
+    topic => topic.title === lastGeneratedTitle
+  )?.category;
+  const eligibleCategories = availableCategories.length > 1
+    ? availableCategories.filter(category => category !== lastGeneratedCategory)
+    : availableCategories;
+  const selectedCategory = eligibleCategories[
+    Math.floor(Math.random() * eligibleCategories.length)
+  ];
+  const categoryTopics = unusedTopics.filter(
+    topic => topic.category === selectedCategory
+  );
+  const selected = categoryTopics[Math.floor(Math.random() * categoryTopics.length)];
   console.log(`📄 Generating ${selected.category}: ${selected.organization}`);
   return selected;
 }

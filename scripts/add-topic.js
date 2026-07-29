@@ -21,7 +21,7 @@ function question(prompt) {
 
 // Validate category
 function isValidCategory(category) {
-  return ['food-pantries', 'support-services', 'shelters-and-housing'].includes(category.toLowerCase());
+  return ['hunger', 'support-services', 'shelter', 'clothing'].includes(category.toLowerCase());
 }
 
 // Main function
@@ -46,7 +46,7 @@ async function addTopic() {
     // Get category
     let category;
     while (true) {
-      category = await question('Category (food-pantries/support-services/shelters-and-housing): ');
+      category = await question('Category (hunger/support-services/shelter/clothing): ');
       if (isValidCategory(category)) {
         category = category.toLowerCase();
         break;

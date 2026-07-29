@@ -1,6 +1,6 @@
 # Content Strategy for decent.charity
 
-The site publishes source-grounded profiles of food pantries, support services, shelters, and housing organizations so readers can understand their work and find practical ways to help.
+The site publishes source-grounded profiles of hunger-relief organizations, support services, shelter organizations, and clothing-assistance organizations so readers can understand their work and find practical ways to help.
 
 ## Editorial Posture
 
