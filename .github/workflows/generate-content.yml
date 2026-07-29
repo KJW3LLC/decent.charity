@@ -2,8 +2,8 @@ name: Generate Charity Profile
 
 on:
   schedule:
-    # Run daily at 1:33 PM UTC (8:33 AM EST / 5:33 AM PST) - off-peak time
-    - cron: '33 13 * * *'
+    # Run daily at 6:00 AM UTC (1:00 AM EST)
+    - cron: '0 6 * * *'
   workflow_dispatch:  # Allow manual triggering
 
 permissions:
