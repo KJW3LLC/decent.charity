@@ -1,7 +1,7 @@
 {
-  "name": "decent-church",
+  "name": "decent-charity",
   "version": "1.0.0",
-  "description": "Scripture-grounded reflections automatically generated and published on GitHub Pages",
+  "description": "Sourced charity profiles and ways to give, automatically published with GitHub Pages",
   "main": "scripts/generate-guide.js",
   "scripts": {
     "generate": "node scripts/generate-guide.js",
@@ -10,22 +10,18 @@
     "show-tags": "node scripts/add-topic.js --tags",
     "add-images": "node scripts/add-images-retroactive.js",
     "fix-formatting": "node scripts/fix-guide-formatting.js",
-    "fix-series": "node scripts/fix-series-metadata.js",
     "fix-links": "node scripts/fix-broken-links.js",
-    "fix-series-nav": "node scripts/fix-series-navigation.js",
     "review": "node scripts/review-guides.js",
     "review:fix": "node scripts/review-guides.js --fix",
     "validate": "node scripts/validate-json.js",
-    "validate:series": "node scripts/validate-series.js",
-    "test:series": "node scripts/test-series-auto-update.js",
     "add-missing-image": "node scripts/add-missing-image.js"
   },
   "keywords": [
-    "faith",
-    "church",
-    "scripture",
-    "community",
-    "guides"
+    "charity",
+    "volunteering",
+    "giving",
+    "community-support",
+    "nonprofits"
   ],
   "author": "",
   "license": "MIT",

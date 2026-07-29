@@ -18,19 +18,12 @@ permalink: /api/guides.json
       "slug": "{{ guide.url | replace: '/guides/', '' | replace: '/', '' }}",
       "url": "{{ site.url }}{{ guide.url }}",
       "description": {{ guide.description | jsonify }},
-      "difficulty": "{{ guide.difficulty }}",
+      "category": "{{ guide.category }}",
+      "organization": {{ guide.organization | jsonify }},
+      "source": {{ guide.source | jsonify }},
       "tags": {{ guide.tags | jsonify }},
       "estimated_time": "{{ guide.estimated_time }}",
       "date_published": "{{ guide.date | date_to_xmlschema }}",
-      {%- if guide.series -%}
-      "series": {
-        "name": "{{ guide.series.name }}",
-        "part": {{ guide.series.part }},
-        "total": {{ guide.series.total }}
-        {%- if guide.series.previous -%},"previous": "{{ guide.series.previous }}"{%- endif -%}
-        {%- if guide.series.next -%},"next": "{{ guide.series.next }}"{%- endif -%}
-      },
-      {%- endif -%}
       {%- if guide.image -%}
       "image": "{{ site.url }}{{ guide.image }}",
       {%- endif -%}

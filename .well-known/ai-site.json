@@ -1,67 +1,41 @@
 {
   "schema_version": "1.0",
-  "name": "For Example AI",
-  "description": "Educational AI learning platform with step-by-step guides covering machine learning, deep learning, transformers, and more",
+  "name": "decent.charity",
+  "description": "Sourced profiles of charitable organizations and practical ways to give time, talents, treasure, or needed goods.",
   "version": "1.0",
-  "url": "https://forexample.ai",
+  "url": "https://decent.charity",
   "content_types": [
-    "educational",
-    "technical_guides",
-    "tutorials",
-    "how-to",
-    "documentation"
+    "charity_profiles",
+    "giving_guides",
+    "organization_research"
   ],
-  "topics": [
-    "artificial_intelligence",
-    "machine_learning",
-    "deep_learning",
-    "transformers",
-    "neural_networks",
-    "gpt",
-    "attention_mechanisms",
-    "prompt_engineering",
-    "ai_ethics",
-    "model_training"
-  ],
-  "difficulty_levels": [
-    "beginner",
-    "intermediate",
-    "advanced"
+  "categories": [
+    "food_pantries",
+    "support_services",
+    "shelters_and_housing"
   ],
   "resources": {
     "guides": {
       "url": "/api/guides.json",
-      "description": "Complete list of all AI learning guides with metadata",
-      "format": "json",
-      "updated": "realtime"
-    },
-    "series": {
-      "url": "/api/series.json",
-      "description": "Multi-part learning series and courses",
+      "description": "Sourced charity profiles with organization metadata",
       "format": "json",
       "updated": "realtime"
     },
     "topics": {
       "url": "/api/topics.json",
-      "description": "Guide taxonomy organized by topic tags",
+      "description": "Profiles organized by topic tags",
       "format": "json",
       "updated": "realtime"
     },
     "index": {
       "url": "/index.json",
-      "description": "Site structure and navigation index",
+      "description": "Site structure and category counts",
       "format": "json",
       "updated": "realtime"
     },
     "feed": {
       "url": "/feed.xml",
-      "description": "RSS/Atom feed of latest guides",
-      "format": "xml",
-      "updated": "realtime"
-    },
-    "sitemap": {
-      "url": "/sitemap.xml",
-      "description": "XML sitemap for all pages",
+      "description": "Latest charity profiles",
       "format": "xml",
       "updated": "realtime"
     }
@@ -69,39 +43,13 @@
   "capabilities": {
     "search": true,
     "filtering": [
-      "difficulty",
+      "category",
+      "organization",
       "topic",
-      "series",
       "tags"
     ],
     "structured_data": true,
-    "json_ld": true,
-    "breadcrumbs": false,
-    "table_of_contents": false
-  },
-  "content_features": {
-    "series_support": true,
-    "prerequisites": true,
-    "code_examples": true,
-    "estimated_reading_time": true,
-    "visual_diagrams": true,
-    "practical_exercises": true
-  },
-  "license": {
-    "type": "CC BY 4.0",
-    "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "attribution_required": true,
-    "commercial_use": true,
-    "modifications_allowed": true
-  },
-  "attribution": {
-    "required": true,
-    "format": "[Guide Title], For Example AI (https://forexample.ai)",
-    "link_back_appreciated": true
-  },
-  "contact": {
-    "website": "https://forexample.ai"
+    "json_ld": true
   },
   "technical": {
     "generator": "Jekyll",

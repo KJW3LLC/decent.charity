@@ -44,12 +44,10 @@ if (!fs.existsSync(IMAGES_DIR)) {
 }
 
 // Generate article image prompt from topic
-function generateImagePrompt(title, tags) {
-  const keywords = tags.slice(0, 3).join(', ');
-
+function generateImagePrompt(title, organization, category) {
   return {
-    prompt: `Stained glass illustration for a Scripture-grounded article about ${title}. Use symbolic Christian visual language connected to ${keywords}: fish, cups, water, sheep, bread, paths, light, vines, or abstract sacred geometry. Inspired by Notre Dame stained glass rose windows and medieval rosette patterns, luminous jewel-toned glass pieces, lead came lines, radial symmetry or simple subject-centered composition, reverent and peaceful, no people, no faces, no readable text, no letters, no watermark, no logo, no denominational branding`,
-    negative_prompt: `people, person, human figure, faces, portraits, hands, crowds, text, letters, words, typography, watermark, logo, denomination symbols, political signs, photorealistic people`
+    prompt: `Editorial city street photograph for an article titled ${title} about ${organization}, categorized as ${category.replace(/-/g, ' ')}. Documentary-style urban streetscape connected to community support and neighborhood life. Render the entire photo in rich black and white except for one single prominent element in one primary color (red, blue, or yellow). Natural light, candid realism, strong composition, respectful and hopeful mood. Do not depict or imply a specific facility, client, volunteer, or branded property unless verified. No logos, no organization branding, no readable signs, no readable text, no watermark, no staged poverty imagery.`,
+    negative_prompt: `multiple colored elements, full color, sepia, logos, organization branding, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, identifiable vulnerable people`
   };
 }
 
@@ -115,7 +113,7 @@ async function tryGenerateWithModel(promptData, modelUrl, modelName, steps, maxR
 }
 
 // Generate and save image using NVIDIA's FLUX models with fallback
-async function generateAndSaveImage(title, tags) {
+async function generateAndSaveImage(title, organization, category) {
   const slug = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
@@ -125,7 +123,7 @@ async function generateAndSaveImage(title, tags) {
 
   console.log(`Generating article image for: ${title}`);
 
-  const prompt = generateImagePrompt(title, tags);
+  const prompt = generateImagePrompt(title, organization, category);
   let imageBase64 = null;
   let modelUsed = null;
 
@@ -233,21 +231,24 @@ async function main() {
 
   const frontMatter = frontMatterMatch[1];
   const titleMatch = frontMatter.match(/title:\s*"(.+?)"/);
-  const tagsMatch = frontMatter.match(/tags:\s*\[(.*?)\]/);
+  const organizationMatch = frontMatter.match(/organization:\s*"(.+?)"/);
+  const categoryMatch = frontMatter.match(/category:\s*(.+)/);
 
-  if (!titleMatch) {
-    console.error('Could not find title');
+  if (!titleMatch || !organizationMatch || !categoryMatch) {
+    console.error('Could not find title, organization, or category');
     process.exit(1);
   }
 
   const title = titleMatch[1];
-  const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/"/g, '')) : [];
+  const organization = organizationMatch[1];
+  const category = categoryMatch[1].trim().replace(/^["']|["']$/g, '');
 
   console.log(`Title: ${title}`);
-  console.log(`Tags: ${tags.join(', ')}\n`);
+  console.log(`Organization: ${organization}`);
+  console.log(`Category: ${category}\n`);
 
   // Generate image
-  const imageData = await generateAndSaveImage(title, tags);
+  const imageData = await generateAndSaveImage(title, organization, category);
 
   if (!imageData) {
     console.error('Failed to generate image');

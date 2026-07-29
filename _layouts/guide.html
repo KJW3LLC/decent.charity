@@ -12,7 +12,7 @@ layout: default
         <div class="container">
             <h1 class="guide-title">{{ page.title }}</h1>
             <div class="guide-meta">
-                <span class="difficulty difficulty-{{ page.difficulty }}">{{ page.difficulty | capitalize }}</span>
+                <span class="difficulty category-{{ page.category }}">{{ page.category | replace: '-', ' ' | capitalize }}</span>
                 <span class="estimated-time">{{ page.estimated_time }}</span>
                 <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
             </div>
@@ -156,7 +156,7 @@ layout: default
     </div><!-- end guide-content container -->
 
     <footer class="guide-footer container">
-        <a href="{{ '/' | relative_url }}" class="back-link">← Back to All Articles</a>
+        <a href="{{ '/' | relative_url }}" class="back-link">← Back to Charities</a>
     </footer>
 </article>
 

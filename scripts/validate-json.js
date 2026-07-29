@@ -22,7 +22,42 @@ JSON_FILES.forEach(file => {
 
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-    JSON.parse(content);
+    const data = JSON.parse(content);
+
+    if (file === 'topics.json') {
+      const allowedCategories = new Set([
+        'food-pantries',
+        'support-services',
+        'shelters-and-housing'
+      ]);
+
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error('topics.json must contain at least one organization topic');
+      }
+
+      data.forEach((topic, index) => {
+        const requiredStrings = ['title', 'organization', 'category', 'source'];
+        requiredStrings.forEach(field => {
+          if (typeof topic[field] !== 'string' || !topic[field].trim()) {
+            throw new Error(`topics.json item ${index + 1} is missing ${field}`);
+          }
+        });
+
+        if (!allowedCategories.has(topic.category)) {
+          throw new Error(`topics.json item ${index + 1} has invalid category: ${topic.category}`);
+        }
+
+        const sourceUrl = new URL(topic.source);
+        if (sourceUrl.protocol !== 'https:') {
+          throw new Error(`topics.json item ${index + 1} source must use HTTPS`);
+        }
+
+        if (!Array.isArray(topic.tags) || topic.tags.length === 0) {
+          throw new Error(`topics.json item ${index + 1} must include tags`);
+        }
+      });
+    }
+
     console.log(`✅ ${file}: Valid`);
   } catch (error) {
     console.error(`❌ ${file}: Invalid JSON`);

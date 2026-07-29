@@ -1,609 +1,72 @@
 [
   {
-    "title": "How to Begin Looking for a Church Family",
-    "difficulty": "beginner",
-    "tags": [
-      "church-family",
-      "belonging",
-      "discernment"
-    ],
-    "series": {
-      "name": "Finding a Church Family",
-      "part": 1,
-      "total": 4,
-      "next": "what-to-look-for-in-a-healthy-congregation"
-    }
+    "title": "Feeding America: A Nationwide Network Working to End Hunger",
+    "organization": "Feeding America",
+    "category": "food-pantries",
+    "source": "https://www.feedingamerica.org/about-us",
+    "tags": ["hunger-relief", "food-banks", "national-network"]
   },
   {
-    "title": "What to Look For in a Healthy Congregation",
-    "difficulty": "beginner",
-    "tags": [
-      "healthy-church",
-      "community",
-      "wisdom"
-    ],
-    "series": {
-      "name": "Finding a Church Family",
-      "part": 2,
-      "total": 4,
-      "previous": "how-to-begin-looking-for-a-church-family",
-      "next": "questions-to-ask-before-joining-a-church"
-    }
+    "title": "City Harvest: Rescuing Food for New York City Neighbors",
+    "organization": "City Harvest",
+    "category": "food-pantries",
+    "source": "https://www.cityharvest.org/our-story/",
+    "tags": ["food-rescue", "new-york-city", "food-pantries"]
   },
   {
-    "title": "Questions to Ask Before Joining a Church",
-    "difficulty": "intermediate",
-    "tags": [
-      "discernment",
-      "membership",
-      "community"
-    ],
-    "series": {
-      "name": "Finding a Church Family",
-      "part": 3,
-      "total": 4,
-      "previous": "what-to-look-for-in-a-healthy-congregation",
-      "next": "how-to-become-part-of-a-church-community"
-    }
+    "title": "Food Bank For New York City: Food and Support Across Five Boroughs",
+    "organization": "Food Bank For New York City",
+    "category": "food-pantries",
+    "source": "https://www.foodbanknyc.org/who-we-are/",
+    "tags": ["food-security", "new-york-city", "community-support"]
   },
   {
-    "title": "How to Become Part of a Church Community",
-    "difficulty": "intermediate",
-    "tags": [
-      "belonging",
-      "service",
-      "fellowship"
-    ],
-    "series": {
-      "name": "Finding a Church Family",
-      "part": 4,
-      "total": 4,
-      "previous": "questions-to-ask-before-joining-a-church"
-    }
+    "title": "211: Connecting People with Essential Local Resources",
+    "organization": "211",
+    "category": "support-services",
+    "source": "https://211.org/about-us",
+    "tags": ["resource-navigation", "crisis-support", "local-services"]
   },
   {
-    "title": "Finding Your Faith One Honest Step at a Time",
-    "difficulty": "beginner",
-    "tags": [
-      "faith",
-      "questions",
-      "trust"
-    ],
-    "series": {
-      "name": "Finding Your Faith",
-      "part": 1,
-      "total": 4,
-      "next": "bringing-your-doubts-to-god"
-    }
+    "title": "Volunteers of America: Housing, Health and Human Services",
+    "organization": "Volunteers of America",
+    "category": "support-services",
+    "source": "https://www.voa.org/our-services/",
+    "tags": ["human-services", "health", "community-support"]
   },
   {
-    "title": "Bringing Your Doubts to God",
-    "difficulty": "beginner",
-    "tags": [
-      "doubt",
-      "prayer",
-      "faith"
-    ],
-    "series": {
-      "name": "Finding Your Faith",
-      "part": 2,
-      "total": 4,
-      "previous": "finding-your-faith-one-honest-step-at-a-time",
-      "next": "learning-to-trust-god-when-faith-feels-small"
-    }
+    "title": "Meals on Wheels America: Nutrition and Connection for Older Adults",
+    "organization": "Meals on Wheels America",
+    "category": "support-services",
+    "source": "https://www.mealsonwheelsamerica.org/about/",
+    "tags": ["senior-support", "meal-delivery", "social-connection"]
   },
   {
-    "title": "Learning to Trust God When Faith Feels Small",
-    "difficulty": "intermediate",
-    "tags": [
-      "trust",
-      "faith",
-      "perseverance"
-    ],
-    "series": {
-      "name": "Finding Your Faith",
-      "part": 3,
-      "total": 4,
-      "previous": "bringing-your-doubts-to-god",
-      "next": "building-a-daily-rhythm-of-faith"
-    }
+    "title": "Habitat for Humanity: Building Access to Safe, Affordable Homes",
+    "organization": "Habitat for Humanity",
+    "category": "shelters-and-housing",
+    "source": "https://www.habitat.org/about",
+    "tags": ["affordable-housing", "homebuilding", "community-development"]
   },
   {
-    "title": "Building a Daily Rhythm of Faith",
-    "difficulty": "intermediate",
-    "tags": [
-      "spiritual-practices",
-      "scripture",
-      "prayer"
-    ],
-    "series": {
-      "name": "Finding Your Faith",
-      "part": 4,
-      "total": 4,
-      "previous": "learning-to-trust-god-when-faith-feels-small"
-    }
+    "title": "Covenant House: Shelter and Support for Young People",
+    "organization": "Covenant House",
+    "category": "shelters-and-housing",
+    "source": "https://www.covenanthouse.org/about-us",
+    "tags": ["youth-homelessness", "emergency-shelter", "long-term-support"]
   },
   {
-    "title": "Discerning Your Purpose with God",
-    "difficulty": "beginner",
-    "tags": [
-      "purpose",
-      "calling",
-      "discernment"
-    ],
-    "series": {
-      "name": "Discerning Purpose",
-      "part": 1,
-      "total": 4,
-      "next": "listening-for-wisdom-in-scripture-prayer-and-community"
-    }
+    "title": "Family Promise: Preventing and Ending Family Homelessness",
+    "organization": "Family Promise",
+    "category": "shelters-and-housing",
+    "source": "https://familypromise.org/what-we-do/",
+    "tags": ["family-homelessness", "shelter", "housing-stability"]
   },
   {
-    "title": "Listening for Wisdom in Scripture Prayer and Community",
-    "difficulty": "intermediate",
-    "tags": [
-      "wisdom",
-      "scripture",
-      "community"
-    ],
-    "series": {
-      "name": "Discerning Purpose",
-      "part": 2,
-      "total": 4,
-      "previous": "discerning-your-purpose-with-god",
-      "next": "using-your-gifts-to-love-god-and-neighbor"
-    }
-  },
-  {
-    "title": "Using Your Gifts to Love God and Neighbor",
-    "difficulty": "intermediate",
-    "tags": [
-      "gifts",
-      "service",
-      "neighbor-love"
-    ],
-    "series": {
-      "name": "Discerning Purpose",
-      "part": 3,
-      "total": 4,
-      "previous": "listening-for-wisdom-in-scripture-prayer-and-community",
-      "next": "when-purpose-feels-ordinary"
-    }
-  },
-  {
-    "title": "When Purpose Feels Ordinary",
-    "difficulty": "advanced",
-    "tags": [
-      "purpose",
-      "faithfulness",
-      "vocation"
-    ],
-    "series": {
-      "name": "Discerning Purpose",
-      "part": 4,
-      "total": 4,
-      "previous": "using-your-gifts-to-love-god-and-neighbor"
-    }
-  },
-  {
-    "title": "Loving God with Heart Soul Mind and Strength",
-    "difficulty": "beginner",
-    "tags": [
-      "love-god",
-      "discipleship",
-      "scripture"
-    ],
-    "series": {
-      "name": "Loving God and Neighbor",
-      "part": 1,
-      "total": 4,
-      "next": "loving-your-neighbor-in-practical-ways"
-    }
-  },
-  {
-    "title": "Loving Your Neighbor in Practical Ways",
-    "difficulty": "beginner",
-    "tags": [
-      "neighbor-love",
-      "service",
-      "compassion"
-    ],
-    "series": {
-      "name": "Loving God and Neighbor",
-      "part": 2,
-      "total": 4,
-      "previous": "loving-god-with-heart-soul-mind-and-strength",
-      "next": "welcoming-people-who-are-different-from-you"
-    }
-  },
-  {
-    "title": "Welcoming People Who Are Different From You",
-    "difficulty": "intermediate",
-    "tags": [
-      "hospitality",
-      "unity",
-      "neighbor-love"
-    ],
-    "series": {
-      "name": "Loving God and Neighbor",
-      "part": 3,
-      "total": 4,
-      "previous": "loving-your-neighbor-in-practical-ways",
-      "next": "practicing-mercy-without-losing-truth"
-    }
-  },
-  {
-    "title": "Practicing Mercy Without Losing Truth",
-    "difficulty": "advanced",
-    "tags": [
-      "mercy",
-      "truth",
-      "wisdom"
-    ],
-    "series": {
-      "name": "Loving God and Neighbor",
-      "part": 4,
-      "total": 4,
-      "previous": "welcoming-people-who-are-different-from-you"
-    }
-  },
-  {
-    "title": "Why Scripture Matters When You Are Searching for Faith",
-    "difficulty": "beginner",
-    "tags": [
-      "scripture",
-      "faith",
-      "formation"
-    ],
-    "series": {
-      "name": "Scripture and Prayer for Seekers",
-      "part": 1,
-      "total": 4,
-      "next": "how-to-read-the-bible-when-you-do-not-know-where-to-start"
-    }
-  },
-  {
-    "title": "How to Read the Bible When You Do Not Know Where to Start",
-    "difficulty": "beginner",
-    "tags": [
-      "scripture",
-      "spiritual-practices",
-      "wisdom"
-    ],
-    "series": {
-      "name": "Scripture and Prayer for Seekers",
-      "part": 2,
-      "total": 4,
-      "previous": "why-scripture-matters-when-you-are-searching-for-faith",
-      "next": "learning-to-pray-with-honesty-and-hope"
-    }
-  },
-  {
-    "title": "Learning to Pray with Honesty and Hope",
-    "difficulty": "beginner",
-    "tags": [
-      "prayer",
-      "hope",
-      "faith"
-    ],
-    "series": {
-      "name": "Scripture and Prayer for Seekers",
-      "part": 3,
-      "total": 4,
-      "previous": "how-to-read-the-bible-when-you-do-not-know-where-to-start",
-      "next": "letting-scripture-shape-your-decisions"
-    }
-  },
-  {
-    "title": "Letting Scripture Shape Your Decisions",
-    "difficulty": "intermediate",
-    "tags": [
-      "scripture",
-      "discernment",
-      "wisdom"
-    ],
-    "series": {
-      "name": "Scripture and Prayer for Seekers",
-      "part": 4,
-      "total": 4,
-      "previous": "learning-to-pray-with-honesty-and-hope"
-    }
-  },
-  {
-    "title": "How a Healthy Church Handles Conflict",
-    "difficulty": "intermediate",
-    "tags": [
-      "healthy-church",
-      "conflict",
-      "reconciliation"
-    ]
-  },
-  {
-    "title": "Why Humility Matters in Church Leadership",
-    "difficulty": "advanced",
-    "tags": [
-      "leadership",
-      "humility",
-      "healthy-church"
-    ]
-  },
-  {
-    "title": "Marks of Servant Leadership in a Congregation",
-    "difficulty": "intermediate",
-    "tags": [
-      "leadership",
-      "service",
-      "healthy-church"
-    ]
-  },
-  {
-    "title": "The Difference Between Belonging and Just Attending",
-    "difficulty": "beginner",
-    "tags": [
-      "belonging",
-      "fellowship",
-      "community"
-    ]
-  },
-  {
-    "title": "How to Visit a Church for the First Time",
-    "difficulty": "beginner",
-    "tags": [
-      "church-family",
-      "hospitality",
-      "discernment"
-    ]
-  },
-  {
-    "title": "Finding Community After Church Hurt",
-    "difficulty": "intermediate",
-    "tags": [
-      "healing",
-      "church-family",
-      "trust"
-    ]
-  },
-  {
-    "title": "What to Do When You Feel Spiritually Dry",
-    "difficulty": "intermediate",
-    "tags": [
-      "faith",
-      "perseverance",
-      "prayer"
-    ]
-  },
-  {
-    "title": "How to Serve Before You Feel Ready",
-    "difficulty": "beginner",
-    "tags": [
-      "service",
-      "calling",
-      "faithfulness"
-    ]
-  },
-  {
-    "title": "Hospitality as a Way of Life",
-    "difficulty": "intermediate",
-    "tags": [
-      "hospitality",
-      "neighbor-love",
-      "community"
-    ]
-  },
-  {
-    "title": "Learning Generosity from Scripture",
-    "difficulty": "intermediate",
-    "tags": [
-      "generosity",
-      "scripture",
-      "discipleship"
-    ]
-  },
-  {
-    "title": "Why Confession and Forgiveness Matter",
-    "difficulty": "advanced",
-    "tags": [
-      "forgiveness",
-      "reconciliation",
-      "discipleship"
-    ]
-  },
-  {
-    "title": "How to Encourage Someone New to Faith",
-    "difficulty": "beginner",
-    "tags": [
-      "encouragement",
-      "faith",
-      "neighbor-love"
-    ]
-  },
-  {
-    "title": "Choosing Fellowship Over Isolation",
-    "difficulty": "beginner",
-    "tags": [
-      "fellowship",
-      "community",
-      "belonging"
-    ]
-  },
-  {
-    "title": "Practicing Sabbath Rest in a Busy Life",
-    "difficulty": "intermediate",
-    "tags": [
-      "rest",
-      "spiritual-practices",
-      "trust"
-    ]
-  },
-  {
-    "title": "How Families Can Grow in Faith Together",
-    "difficulty": "intermediate",
-    "tags": [
-      "family",
-      "faith",
-      "scripture"
-    ]
-  },
-  {
-    "title": "What Worship Teaches Us About God",
-    "difficulty": "beginner",
-    "tags": [
-      "worship",
-      "love-god",
-      "formation"
-    ]
-  },
-  {
-    "title": "Looking for Fruit Not Flash in a Church",
-    "difficulty": "intermediate",
-    "tags": [
-      "healthy-church",
-      "discernment",
-      "wisdom"
-    ]
-  },
-  {
-    "title": "When a Church Feels Too Small or Too Large",
-    "difficulty": "beginner",
-    "tags": [
-      "church-family",
-      "belonging",
-      "discernment"
-    ]
-  },
-  {
-    "title": "How to Talk with a Pastor When You Are Searching",
-    "difficulty": "beginner",
-    "tags": [
-      "pastoral-care",
-      "questions",
-      "church-family"
-    ]
-  },
-  {
-    "title": "The Role of Baptism and Communion in Christian Community",
-    "difficulty": "intermediate",
-    "tags": [
-      "sacraments",
-      "community",
-      "faith"
-    ]
-  },
-  {
-    "title": "Recognizing Spiritual Growth in Ordinary Seasons",
-    "difficulty": "intermediate",
-    "tags": [
-      "growth",
-      "faithfulness",
-      "purpose"
-    ]
-  },
-  {
-    "title": "How to Pray for Your Neighborhood",
-    "difficulty": "beginner",
-    "tags": [
-      "prayer",
-      "neighbor-love",
-      "mission"
-    ]
-  },
-  {
-    "title": "Serving the Poor with Dignity and Love",
-    "difficulty": "advanced",
-    "tags": [
-      "mercy",
-      "justice",
-      "neighbor-love"
-    ]
-  },
-  {
-    "title": "What Unity Looks Like Without Uniformity",
-    "difficulty": "advanced",
-    "tags": [
-      "unity",
-      "hospitality",
-      "healthy-church"
-    ]
-  },
-  {
-    "title": "Finding Peace When You Are Unsure What You Believe",
-    "difficulty": "beginner",
-    "tags": [
-      "faith",
-      "peace",
-      "questions"
-    ]
-  },
-  {
-    "title": "How Gratitude Reorients the Heart",
-    "difficulty": "beginner",
-    "tags": [
-      "gratitude",
-      "love-god",
-      "formation"
-    ]
-  },
-  {
-    "title": "Why Mentors Matter in the Life of Faith",
-    "difficulty": "intermediate",
-    "tags": [
-      "mentorship",
-      "discipleship",
-      "community"
-    ]
-  },
-  {
-    "title": "Making Room for Children Youth and Elders in Church Life",
-    "difficulty": "intermediate",
-    "tags": [
-      "intergenerational",
-      "community",
-      "healthy-church"
-    ]
-  },
-  {
-    "title": "How to Discern Between Guilt and Conviction",
-    "difficulty": "advanced",
-    "tags": [
-      "discernment",
-      "wisdom",
-      "grace"
-    ]
-  },
-  {
-    "title": "Following Jesus in Your Workplace",
-    "difficulty": "intermediate",
-    "tags": [
-      "vocation",
-      "purpose",
-      "neighbor-love"
-    ]
-  },
-  {
-    "title": "Faithful Citizenship Without Losing Neighbor Love",
-    "difficulty": "advanced",
-    "tags": [
-      "neighbor-love",
-      "wisdom",
-      "public-life"
-    ]
-  },
-  {
-    "title": "What Repentance Looks Like in Real Life",
-    "difficulty": "intermediate",
-    "tags": [
-      "repentance",
-      "grace",
-      "discipleship"
-    ]
-  },
-  {
-    "title": "How to Keep Showing Up When Community Is Hard",
-    "difficulty": "advanced",
-    "tags": [
-      "community",
-      "perseverance",
-      "love"
-    ]
+    "title": "Mercy Housing: Affordable Homes with Resident Support",
+    "organization": "Mercy Housing",
+    "category": "shelters-and-housing",
+    "source": "https://www.mercyhousing.org/about/",
+    "tags": ["affordable-housing", "resident-services", "housing-stability"]
   }
 ]

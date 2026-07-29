@@ -21,7 +21,9 @@ permalink: /api/topics.json
           "title": {{ guide.title | jsonify }},
           "slug": "{{ guide.url | replace: '/guides/', '' | replace: '/', '' }}",
           "url": "{{ site.url }}{{ guide.url }}",
-          "difficulty": "{{ guide.difficulty }}",
+          "category": "{{ guide.category }}",
+          "organization": {{ guide.organization | jsonify }},
+          "source": {{ guide.source | jsonify }},
           "estimated_time": "{{ guide.estimated_time }}"
         }{%- unless forloop.last -%},{%- endunless -%}
         {%- endfor -%}

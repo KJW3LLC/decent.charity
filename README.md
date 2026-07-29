@@ -1,6 +1,6 @@
-# decent.church
+# decent.charity
 
-A Jekyll site that publishes Scripture-grounded reflections on finding a church family, finding faith, discerning purpose, and loving God and neighbor.
+A Jekyll site that publishes sourced profiles of charitable organizations and practical ways to contribute time, talents, treasure, or needed goods.
 
 ## Local Development
 

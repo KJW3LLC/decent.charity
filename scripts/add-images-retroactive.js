@@ -51,24 +51,24 @@ function parseFrontMatter(content) {
 
   const frontMatterText = frontMatterMatch[1];
   const titleMatch = frontMatterText.match(/title:\s*"(.+?)"/);
-  const tagsMatch = frontMatterText.match(/tags:\s*\[(.*?)\]/);
+  const organizationMatch = frontMatterText.match(/organization:\s*"(.+?)"/);
+  const categoryMatch = frontMatterText.match(/category:\s*(.+)/);
   const imageMatch = frontMatterText.match(/image:\s*"(.+?)"/);
 
   return {
     fullFrontMatter: frontMatterMatch[0],
     title: titleMatch ? titleMatch[1] : null,
-    tags: tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/"/g, '')) : [],
+    organization: organizationMatch ? organizationMatch[1] : null,
+    category: categoryMatch ? categoryMatch[1].trim().replace(/^["']|["']$/g, '') : null,
     hasImage: !!imageMatch
   };
 }
 
 // Generate article image prompt from topic
-function generateImagePrompt(title, tags) {
-  const keywords = tags.slice(0, 3).join(', ');
-
+function generateImagePrompt(title, organization, category) {
   return {
-    prompt: `Stained glass illustration for a Scripture-grounded article about ${title}. Use symbolic Christian visual language connected to ${keywords}: fish, cups, water, sheep, bread, paths, light, vines, or abstract sacred geometry. Inspired by Notre Dame stained glass rose windows and medieval rosette patterns, luminous jewel-toned glass pieces, lead came lines, radial symmetry or simple subject-centered composition, reverent and peaceful, no people, no faces, no readable text, no letters, no watermark, no logo, no denominational branding`,
-    negative_prompt: `people, person, human figure, faces, portraits, hands, crowds, text, letters, words, typography, watermark, logo, denomination symbols, political signs, photorealistic people`
+    prompt: `Editorial city street photograph for an article titled ${title} about ${organization}, categorized as ${category.replace(/-/g, ' ')}. Documentary-style urban streetscape connected to community support and neighborhood life. Render the entire photo in rich black and white except for one single prominent element in one primary color (red, blue, or yellow). Natural light, candid realism, strong composition, respectful and hopeful mood. Do not depict or imply a specific facility, client, volunteer, or branded property unless verified. No logos, no organization branding, no readable signs, no readable text, no watermark, no staged poverty imagery.`,
+    negative_prompt: `multiple colored elements, full color, sepia, logos, organization branding, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, identifiable vulnerable people`
   };
 }
 
@@ -134,7 +134,7 @@ async function tryGenerateWithModel(promptData, modelUrl, modelName, steps, maxR
 }
 
 // Generate and save image using NVIDIA's FLUX models with fallback
-async function generateAndSaveImage(title, tags) {
+async function generateAndSaveImage(title, organization, category) {
   const slug = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
@@ -154,7 +154,7 @@ async function generateAndSaveImage(title, tags) {
 
   console.log(`  Generating AI image with NVIDIA FLUX...`);
 
-  const prompt = generateImagePrompt(title, tags);
+  const prompt = generateImagePrompt(title, organization, category);
   let imageBase64 = null;
   let modelUsed = null;
 
@@ -243,8 +243,8 @@ async function processGuide(filename) {
     return { processed: false, reason: 'invalid_front_matter' };
   }
 
-  if (!frontMatter.title) {
-    console.log(`⚠️  ${filename}: No title found, skipping`);
+  if (!frontMatter.title || !frontMatter.organization || !frontMatter.category) {
+    console.log(`⚠️  ${filename}: Missing title, organization, or category, skipping`);
     return { processed: false, reason: 'no_title' };
   }
 
@@ -256,7 +256,11 @@ async function processGuide(filename) {
   console.log(`\n📝 Processing: ${frontMatter.title}`);
 
   // Generate image
-  const imageData = await generateAndSaveImage(frontMatter.title, frontMatter.tags);
+  const imageData = await generateAndSaveImage(
+    frontMatter.title,
+    frontMatter.organization,
+    frontMatter.category
+  );
   if (!imageData) {
     console.log(`✗  ${filename}: Failed to generate image`);
     return { processed: false, reason: 'generation_failed' };

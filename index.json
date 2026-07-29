@@ -14,28 +14,21 @@ permalink: /index.json
   },
   "statistics": {
     "total_articles": {{ site.guides.size }},
-    {%- assign series_guides = site.guides | where_exp: "guide", "guide.series" -%}
-    {%- assign series_list = series_guides | group_by: "series.name" -%}
-    "total_series": {{ series_list.size }},
     {%- assign all_tags = site.guides | map: "tags" | join: "," | split: "," | uniq -%}
     "total_topics": {{ all_tags.size }},
-    {%- assign beginner = site.guides | where: "difficulty", "beginner" -%}
-    {%- assign intermediate = site.guides | where: "difficulty", "intermediate" -%}
-    {%- assign advanced = site.guides | where: "difficulty", "advanced" -%}
-    "by_difficulty": {
-      "beginner": {{ beginner.size }},
-      "intermediate": {{ intermediate.size }},
-      "advanced": {{ advanced.size }}
+    {%- assign food_pantries = site.guides | where: "category", "food-pantries" -%}
+    {%- assign support_services = site.guides | where: "category", "support-services" -%}
+    {%- assign shelters = site.guides | where: "category", "shelters-and-housing" -%}
+    "by_category": {
+      "food_pantries": {{ food_pantries.size }},
+      "support_services": {{ support_services.size }},
+      "shelters_and_housing": {{ shelters.size }}
     }
   },
   "endpoints": {
     "guides": {
       "url": "/api/guides.json",
       "description": "All articles with full metadata"
-    },
-    "series": {
-      "url": "/api/series.json",
-      "description": "Learning series and courses"
     },
     "topics": {
       "url": "/api/topics.json",
@@ -58,10 +51,6 @@ permalink: /index.json
     {
       "label": "Home",
       "url": "/"
-    },
-    {
-      "label": "All Articles",
-      "url": "/guides/"
     },
     {
       "label": "API Documentation",

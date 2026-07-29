@@ -1,4 +1,4 @@
-<div class="guide-card" data-difficulty="{{ include.guide.difficulty }}" data-tags="{{ include.guide.tags | join: ',' }}" data-title="{{ include.guide.title | downcase }}" data-description="{{ include.guide.description | downcase }}">
+<div class="guide-card" data-category="{{ include.guide.category }}" data-tags="{{ include.guide.tags | join: ',' }}" data-title="{{ include.guide.title | downcase }}" data-description="{{ include.guide.description | downcase }}">
     <a href="{{ include.guide.url | relative_url }}" class="card-link">
         {% if include.guide.image %}
         <div class="card-image">
@@ -7,15 +7,8 @@
         {% endif %}
         <div class="card-content">
             <div class="card-header">
-                {% assign path_label = include.guide.difficulty | capitalize %}
-                {% if include.guide.difficulty == 'beginner' %}
-                    {% assign path_label = 'Starting Out' %}
-                {% elsif include.guide.difficulty == 'intermediate' %}
-                    {% assign path_label = 'Growing' %}
-                {% elsif include.guide.difficulty == 'advanced' %}
-                    {% assign path_label = 'Going Deeper' %}
-                {% endif %}
-                <span class="difficulty difficulty-{{ include.guide.difficulty }}">{{ path_label }}</span>
+                {% assign category_label = include.guide.category | replace: '-', ' ' | capitalize %}
+                <span class="difficulty category-{{ include.guide.category }}">{{ category_label }}</span>
                 <span class="estimated-time">{{ include.guide.estimated_time }}</span>
             </div>
         <h2 class="card-title">{{ include.guide.title }}</h2>

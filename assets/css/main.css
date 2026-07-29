@@ -16,9 +16,9 @@
     --border-color: #d9e3f2;
     --shadow: 0 2px 10px rgba(35, 31, 32, 0.1);
     --shadow-hover: 0 6px 20px rgba(31, 95, 201, 0.18);
-    --beginner-color: #28a745;
-    --intermediate-color: #ffc107;
-    --advanced-color: #dc3545;
+    --food-pantries-color: #1f7a4d;
+    --support-services-color: #2563a6;
+    --shelters-housing-color: #b45f18;
     --logo-height: 42px;
     --border-radius: 8px;
 }
@@ -101,61 +101,10 @@ body {
     padding: 4.5rem 0;
     text-align: center;
     background-color: #0e1d17;
-    background-image: url('/assets/images/hero-stained-glass.jpg');
+    background-image: url('/assets/images/hero-grocery-shelves.png');
     background-size: cover;
     background-position: center;
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.hero::before,
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: min(34rem, 86vw);
-    height: 120%;
-    pointer-events: none;
-    transform-origin: 50% 0;
-    clip-path: polygon(50% 0, 24% 100%, 76% 100%);
-    background: radial-gradient(circle at 50% 0, rgba(255, 246, 173, 0.32) 0%, rgba(255, 224, 118, 0.14) 36%, rgba(255, 224, 118, 0) 74%);
-    mix-blend-mode: screen;
-    filter: blur(46px);
-    z-index: 0;
-}
-
-.hero::before {
-    transform: translateX(-50%) rotate(-24deg);
-    animation: heroSunbeamLeft 9s ease-in-out infinite alternate;
-}
-
-.hero::after {
-    width: min(26rem, 68vw);
-    transform: translateX(-50%) rotate(28deg);
-    opacity: 0.72;
-    animation: heroSunbeamRight 11s ease-in-out infinite alternate;
-}
-
-@keyframes heroSunbeamLeft {
-    0% {
-        opacity: 0.34;
-        transform: translateX(-50%) rotate(-30deg) scaleX(0.78);
-    }
-    100% {
-        opacity: 0.58;
-        transform: translateX(-50%) rotate(-22deg) scaleX(0.92);
-    }
-}
-
-@keyframes heroSunbeamRight {
-    0% {
-        opacity: 0.22;
-        transform: translateX(-50%) rotate(36deg) scaleX(0.74);
-    }
-    100% {
-        opacity: 0.46;
-        transform: translateX(-50%) rotate(26deg) scaleX(0.9);
-    }
 }
 
 .hero-inner {
@@ -169,7 +118,10 @@ body {
     line-height: 1;
     font-weight: 800;
     white-space: nowrap;
-    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.42);
+    text-shadow:
+        0 0 4px rgba(0, 0, 0, 1),
+        0 0 12px rgba(0, 0, 0, 0.95),
+        0 0 28px rgba(0, 0, 0, 0.9);
 }
 
 .hero-description {
@@ -177,16 +129,12 @@ body {
     margin: 0 auto;
     font-size: 1.25rem;
     opacity: 0.96;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
+    text-shadow:
+        0 0 3px rgba(0, 0, 0, 1),
+        0 0 10px rgba(0, 0, 0, 0.95),
+        0 0 22px rgba(0, 0, 0, 0.9);
 }
 
-
-@media (prefers-reduced-motion: reduce) {
-    .hero::before,
-    .hero::after {
-        animation: none;
-    }
-}
 
 /* Filters */
 .filters {
@@ -309,18 +257,18 @@ body {
     text-transform: uppercase;
 }
 
-.difficulty-beginner {
-    background-color: var(--beginner-color);
+.category-food-pantries {
+    background-color: var(--food-pantries-color);
     color: var(--white);
 }
 
-.difficulty-intermediate {
-    background-color: var(--intermediate-color);
-    color: var(--text-color);
+.category-support-services {
+    background-color: var(--support-services-color);
+    color: var(--white);
 }
 
-.difficulty-advanced {
-    background-color: var(--advanced-color);
+.category-shelters-and-housing {
+    background-color: var(--shelters-housing-color);
     color: var(--white);
 }
 

@@ -1,4 +1,4 @@
-name: Generate Church Article
+name: Generate Charity Profile
 
 on:
   schedule:
@@ -46,16 +46,11 @@ jobs:
         run: |
           git diff --exit-code _guides/ generated-topics.json assets/images/guides/ || echo "changes=true" >> $GITHUB_OUTPUT
 
-      - name: Validate series navigation (informational)
-        if: steps.git-check.outputs.changes == 'true'
-        continue-on-error: true
-        run: npm run validate:series
-
       - name: Commit and push new article
         if: steps.git-check.outputs.changes == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add _guides/ generated-topics.json assets/images/guides/
-          git commit -m "Add new church article with image [automated] - formatting verified"
+          git commit -m "Add sourced charity profile with image [automated]"
           git push

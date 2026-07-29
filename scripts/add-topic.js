@@ -19,14 +19,14 @@ function question(prompt) {
   });
 }
 
-// Validate difficulty
-function isValidDifficulty(difficulty) {
-  return ['beginner', 'intermediate', 'advanced'].includes(difficulty.toLowerCase());
+// Validate category
+function isValidCategory(category) {
+  return ['food-pantries', 'support-services', 'shelters-and-housing'].includes(category.toLowerCase());
 }
 
 // Main function
 async function addTopic() {
-  console.log('\nAdd New Article Topic to decent.church\n');
+  console.log('\nAdd New Article Topic to decent.charity\n');
   console.log('This will add a new topic to topics.json\n');
 
   try {
@@ -37,15 +37,30 @@ async function addTopic() {
       process.exit(1);
     }
 
-    // Get difficulty
-    let difficulty;
+    const organization = await question('Organization name: ');
+    if (!organization.trim()) {
+      console.log('❌ Organization cannot be empty');
+      process.exit(1);
+    }
+
+    // Get category
+    let category;
     while (true) {
-      difficulty = await question('Difficulty (beginner/intermediate/advanced): ');
-      if (isValidDifficulty(difficulty)) {
-        difficulty = difficulty.toLowerCase();
+      category = await question('Category (food-pantries/support-services/shelters-and-housing): ');
+      if (isValidCategory(category)) {
+        category = category.toLowerCase();
         break;
       }
-      console.log('❌ Invalid difficulty. Please use: beginner, intermediate, or advanced');
+      console.log('❌ Invalid category');
+    }
+
+    const source = await question('Official source URL (https://...): ');
+    try {
+      const parsedSource = new URL(source);
+      if (parsedSource.protocol !== 'https:') throw new Error('HTTPS required');
+    } catch {
+      console.log('❌ Source must be a valid HTTPS URL');
+      process.exit(1);
     }
 
     // Get tags
@@ -63,7 +78,9 @@ async function addTopic() {
     // Create topic object
     const newTopic = {
       title: title.trim(),
-      difficulty,
+      organization: organization.trim(),
+      category,
+      source: source.trim(),
       tags
     };
 
@@ -138,7 +155,7 @@ Options:
   --help, -h    Show this help message
 
 Interactive mode (default):
-  Prompts for title, difficulty, and tags to add a new topic to topics.json
+  Prompts for title, organization, category, official source, and tags
 `);
   process.exit(0);
 }

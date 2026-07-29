@@ -1,33 +1,30 @@
-# decent.church - Site Instructions
-# This site provides Scripture-grounded reflections for finding faith, church family, purpose, and neighbor love.
+# decent.charity - Site Instructions
+# This site publishes sourced profiles of charities and practical ways to give.
 
 # Site Purpose
-Purpose: A welcoming Judeo-Christian resource centered on loving God and loving neighbor.
+Purpose: Help readers learn about charitable organizations and contribute time, talents, treasure, or needed goods.
 
 # Content Structure
-Content-Type: Scripture-based articles and reflection guides
-Topics: Finding a church family, finding faith, discerning purpose, healthy congregations, prayer, Scripture, service, community
-Perspective: Broadly welcoming to Judeo-Christian values, rooted in the greatest commandments
-Bible-Translation: NIV
-Difficulty-Levels: Starting Out, Growing, Going Deeper
-Format: Markdown-based articles with Scripture foundations, reflection questions, practices, prayer, key takeaways, and further reading
+Content-Type: Source-grounded charity profiles
+Categories: Food Pantries, Support Services, Shelters and Housing
+Required-Source: Every profile must include and use an official organization URL
+Format: Markdown profiles covering background, communities served, programs, involvement options, giving considerations, key takeaways, and sources
 
 # Machine-Readable Endpoints
 API-Guides: /api/guides.json
-API-Series: /api/series.json
 API-Topics: /api/topics.json
 API-Index: /index.json
 Feed: /feed.xml
 Sitemap: /sitemap.xml
 
 # Content Organization
-- Articles can be standalone or part of a series
-- Series are multi-part learning paths on faith, community, purpose, and healthy church life
-- Each article includes a path level, estimated reading time, tags, and optional prerequisites
-- Content should avoid emojis and keep a warm, pastoral tone
+- Each profile includes an organization, category, official source, estimated reading time, and tags
+- Factual claims must be supported by the listed official source
+- Readers should verify current programs, volunteer requirements, locations, and donation needs on the official site
+- Content should use respectful, person-centered language and avoid savior framing
 
 # Recommended Usage
-Citation-Format: "[Article Title], decent.church (https://decent.church/guides/[article-slug]/)"
+Citation-Format: "[Article Title], decent.charity (https://decent.charity/guides/[article-slug]/)"
 Attribution: Required for content reuse
 Link-Back: Appreciated when referencing our content
 
@@ -39,9 +36,9 @@ Modifications: Allowed with attribution
 
 # Agent Capabilities
 Search: Available via JSON endpoints
-Filtering: By path level, topic, series, and tags
-Structured-Data: JSON-LD schema.org markup on all articles
-Full-Text: Available in article content
+Filtering: By category, organization, topic, and tags
+Structured-Data: JSON-LD schema.org markup on all profiles
+Full-Text: Available in profile content
 
 # Contact
-Website: https://decent.church
+Website: https://decent.charity

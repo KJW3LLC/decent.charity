@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const guideCards = document.querySelectorAll('.guide-card');
     const noResults = document.getElementById('no-results');
 
-    let currentDifficulty = 'all';
+    let currentCategory = 'food-pantries';
     let currentSearchTerm = '';
 
-    // Filter by difficulty
+    // Filter by charity category
     if (filterButtons) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
-                // Get selected difficulty
-                currentDifficulty = this.dataset.difficulty;
+                // Get selected category
+                currentCategory = this.dataset.category;
 
                 // Apply filters
                 applyFilters();
@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
         let visibleCount = 0;
 
         guideCards.forEach(card => {
-            const difficulty = card.dataset.difficulty;
+            const category = card.dataset.category;
             const title = card.dataset.title;
             const description = card.dataset.description;
             const tags = card.dataset.tags.toLowerCase();
 
-            // Check difficulty filter
-            const matchesDifficulty = currentDifficulty === 'all' || difficulty === currentDifficulty;
+            // Check category filter
+            const matchesCategory = category === currentCategory;
 
             // Check search filter
             const matchesSearch = currentSearchTerm === '' ||
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 tags.includes(currentSearchTerm);
 
             // Show or hide card
-            if (matchesDifficulty && matchesSearch) {
+            if (matchesCategory && matchesSearch) {
                 card.style.display = 'block';
                 visibleCount++;
             } else {
@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
             noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
     }
+
+    applyFilters();
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

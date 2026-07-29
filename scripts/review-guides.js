@@ -11,26 +11,24 @@ const GUIDES_DIR = path.join(__dirname, '..', '_guides');
 const REVIEW_REPORT_FILE = path.join(__dirname, '..', 'guide-review-report.json');
 
 // Review criteria
-const REVIEW_PROMPT = `You are a content quality reviewer for decent.church. Review this Scripture-grounded article and provide a detailed assessment.
+const REVIEW_PROMPT = `You are a content quality reviewer for decent.charity. Review this charity profile against its required official source.
 
 REVIEW CRITERIA:
 
 1. COMPLETENESS (Score 1-10)
-   - Does the article have all expected sections? (Introduction, Scripture Foundation, What This Looks Like in Daily Life, Questions for Reflection, A Simple Practice This Week, Prayer, Key Takeaways, Further Reading)
+   - Does the article have all expected sections? (Introduction, Organization Background, Communities Served, Programs and Services, How to Get Involved, Before You Give, Key Takeaways, Sources)
    - Are any sections incomplete or cut off mid-sentence?
-   - Is the content depth appropriate for the path level?
+   - Is the content complete enough to help a reader understand the organization and take a verified next step?
 
-2. PASTORAL QUALITY (Score 1-10)
-   - Is the writing warm, clear, and welcoming?
-   - Does it honor broad Judeo-Christian values without becoming sectarian or partisan?
-   - Does it center loving God and loving neighbor?
-   - Does it avoid emojis, gimmicks, and manipulative emotional language?
+2. DIGNITY AND USEFULNESS (Score 1-10)
+   - Is the writing clear, respectful, practical, and free of savior language?
+   - Does it distinguish national information from local services?
+   - Does it explain ways to contribute time, talents, treasure, or needed goods?
 
-3. SCRIPTURAL INTEGRITY (Score 1-10)
-   - Are Scripture references relevant and handled responsibly?
-   - Are NIV references used where Scripture wording or translation is specified?
-   - Are claims appropriately humble, practical, and grounded in the passages?
-   - Are links and further reading relevant?
+3. SOURCE ACCURACY (Score 1-10)
+   - Is every factual claim supported by the supplied official source content?
+   - Is the required source linked prominently and included in the Sources section?
+   - Are changing details presented cautiously with instructions to verify on the official site?
 
 4. SPECIFIC ISSUES
    - List any specific problems found, including missing sections, weak Scripture handling, tone issues, unsupported claims, or formatting problems.
@@ -53,6 +51,27 @@ Respond in exactly this JSON format:
 }
 
 The priority must be exactly one of: "low", "medium", or "high"`;
+
+async function fetchSourceContent(url, timeout = 30000) {
+  const response = await axios.get(url, {
+    timeout,
+    maxRedirects: 5,
+    headers: { 'User-Agent': 'decent.charity article reviewer' },
+    validateStatus: status => status >= 200 && status < 400
+  });
+
+  return String(response.data)
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 16000);
+}
 
 // Parse frontmatter and content from guide
 function parseGuide(filePath) {
@@ -83,13 +102,23 @@ async function reviewGuide(guideData, filename, retryCount = 0) {
   const maxRetries = 2;
   console.log(`  Analyzing content...${retryCount > 0 ? ` (attempt ${retryCount + 1}/${maxRetries + 1})` : ''}`);
 
+  if (!guideData.frontMatter.source) {
+    throw new Error('Guide is missing required source front matter');
+  }
+
+  const sourceContent = await fetchSourceContent(guideData.frontMatter.source);
   const reviewPrompt = `${REVIEW_PROMPT}
 
 GUIDE TO REVIEW:
 Title: ${guideData.frontMatter.title || 'Unknown'}
-Difficulty: ${guideData.frontMatter.difficulty || 'Unknown'}
+Organization: ${guideData.frontMatter.organization || 'Unknown'}
+Category: ${guideData.frontMatter.category || 'Unknown'}
+Required Source: ${guideData.frontMatter.source}
 Date: ${guideData.frontMatter.date || 'Unknown'}
 Estimated Time: ${guideData.frontMatter.estimated_time || 'Unknown'}
+
+OFFICIAL SOURCE CONTENT:
+${sourceContent}
 
 ARTICLE CONTENT:
 ${guideData.content}
@@ -236,14 +265,20 @@ function generateSummary(results) {
 async function fixGuide(guideData, review, filename, filePath) {
   console.log(`  🔧 Fixing issues...`);
 
-  const fixPrompt = `You are a content editor for decent.church. You previously reviewed this Scripture-grounded article and found issues. Now fix them.
+  const sourceContent = await fetchSourceContent(guideData.frontMatter.source);
+  const fixPrompt = `You are a content editor for decent.charity. You previously reviewed this charity profile and found issues. Now fix them.
 
 ORIGINAL ARTICLE:
 Title: ${guideData.frontMatter.title || 'Unknown'}
-Difficulty: ${guideData.frontMatter.difficulty || 'Unknown'}
+Organization: ${guideData.frontMatter.organization || 'Unknown'}
+Category: ${guideData.frontMatter.category || 'Unknown'}
+Required Source: ${guideData.frontMatter.source}
 
 CONTENT:
 ${guideData.content}
+
+OFFICIAL SOURCE CONTENT:
+${sourceContent}
 
 REVIEW FEEDBACK:
 - Completeness Score: ${review.completeness_score}/10
@@ -261,11 +296,11 @@ ${review.recommendations.map(r => `- ${r}`).join('\n')}
 
 INSTRUCTIONS:
 1. Fix ALL issues identified in the review
-2. Keep the expected structure (Introduction, Scripture Foundation, What This Looks Like in Daily Life, Questions for Reflection, A Simple Practice This Week, Prayer, Key Takeaways, Further Reading)
-3. Maintain a warm, welcoming, pastoral tone centered on loving God and loving neighbor
-4. Ensure all sections are complete and at the appropriate depth for ${guideData.frontMatter.difficulty} difficulty
-5. Fix formatting issues, add relevant links, strengthen Scripture handling, and remove any emojis
-6. Use NIV for Scripture references and return ONLY the updated markdown content (no frontmatter, no explanations)
+2. Keep the expected structure (Introduction, Organization Background, Communities Served, Programs and Services, How to Get Involved, Before You Give, Key Takeaways, Sources)
+3. Maintain a respectful, practical tone and preserve the dignity of communities served
+4. Remove or qualify every factual claim not supported by the official source content
+5. Include the required official source link and remove invented links or details
+6. Return ONLY the updated markdown content (no frontmatter, no explanations)
 
 Provide the complete, improved article content:`;
 
@@ -362,7 +397,8 @@ async function main() {
         filename,
         title: guideData.frontMatter.title || 'Unknown',
         date: guideData.frontMatter.date || 'Unknown',
-        difficulty: guideData.frontMatter.difficulty || 'Unknown',
+        category: guideData.frontMatter.category || 'Unknown',
+        source: guideData.frontMatter.source || 'Unknown',
         review,
         fixed: fixApplied
       });

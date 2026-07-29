@@ -31,9 +31,7 @@
   },
   "url": "{{ site.url }}{{ page.url }}",
   "keywords": {{ page.tags | jsonify }},
-  "articleSection": "{{ page.tags.first }}",
-  "educationalLevel": "{{ page.difficulty | capitalize }}",
-  "proficiencyLevel": "{{ page.difficulty | capitalize }}",
+  "articleSection": "{{ page.category | replace: '-', ' ' | capitalize }}",
   "timeRequired": "{{ page.estimated_time }}",
   "inLanguage": "en-US",
   {%- if page.series -%}
@@ -44,8 +42,9 @@
   },
   {%- endif -%}
   "about": {
-    "@type": "Thing",
-    "name": "{{ page.tags.first }}"
+    "@type": "Organization",
+    "name": {{ page.organization | jsonify }},
+    "sameAs": {{ page.source | jsonify }}
   }
 }
 </script>

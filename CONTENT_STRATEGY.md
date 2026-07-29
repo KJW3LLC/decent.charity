@@ -1,6 +1,6 @@
-# Content Strategy for decent.church
+# Content Strategy for decent.charity
 
-The site publishes Scripture-grounded reflections for people seeking faith, returning to church, discerning purpose, and learning to love God and neighbor in daily life.
+The site publishes source-grounded profiles of food pantries, support services, shelters, and housing organizations so readers can understand their work and find practical ways to help.
 
 ## Editorial Posture
 
