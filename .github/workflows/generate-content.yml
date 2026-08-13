@@ -44,7 +44,9 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code _guides/ generated-topics.json assets/images/guides/ || echo "changes=true" >> $GITHUB_OUTPUT
+          if [[ -n "$(git status --porcelain --untracked-files=all -- _guides/ generated-topics.json assets/images/guides/)" ]]; then
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Commit and push new article
         if: steps.git-check.outputs.changes == 'true'

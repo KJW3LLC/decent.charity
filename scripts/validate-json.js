@@ -36,6 +36,16 @@ JSON_FILES.forEach(file => {
         throw new Error('topics.json must contain at least one organization topic');
       }
 
+      const normalizedTitles = data.map(topic =>
+        typeof topic.title === 'string' ? topic.title.trim().toLowerCase() : ''
+      );
+      const duplicateTitle = normalizedTitles.find(
+        (title, index) => title && normalizedTitles.indexOf(title) !== index
+      );
+      if (duplicateTitle) {
+        throw new Error(`topics.json contains a duplicate title: ${duplicateTitle}`);
+      }
+
       data.forEach((topic, index) => {
         const requiredStrings = ['title', 'organization', 'category', 'source'];
         requiredStrings.forEach(field => {

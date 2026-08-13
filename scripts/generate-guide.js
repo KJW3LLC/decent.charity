@@ -65,6 +65,18 @@ function saveGeneratedTopics(generatedTopics) {
   fs.writeFileSync(GENERATED_TOPICS_FILE, JSON.stringify(generatedTopics, null, 2));
 }
 
+// Read titles from existing guide front matter so a stale tracking file cannot
+// cause an already-published title to be generated again.
+function loadExistingGuideTitles() {
+  if (!fs.existsSync(GUIDES_DIR)) return [];
+
+  return fs.readdirSync(GUIDES_DIR)
+    .filter(file => file.endsWith('.md'))
+    .map(file => fs.readFileSync(path.join(GUIDES_DIR, file), 'utf-8'))
+    .map(content => content.match(/^title:\s*["']?(.+?)["']?\s*$/m)?.[1])
+    .filter(Boolean);
+}
+
 // Helper: Convert title to slug format for comparison
 function titleToSlug(title) {
   return title
@@ -75,15 +87,13 @@ function titleToSlug(title) {
 
 // Select a random category first, then a random unused topic in that category.
 // Avoid the category used most recently when another category is available.
-function selectNextTopic(topics, generatedTopics) {
+function selectNextTopic(topics, usedTitles, generatedTopics) {
   const unusedTopics = topics.filter(
-    topic => !generatedTopics.includes(topic.title)
+    topic => !usedTitles.has(topic.title)
   );
 
   if (unusedTopics.length === 0) {
-    // All topics used, reset and start over
-    console.log('All topics have been used. Resetting...');
-    return topics[Math.floor(Math.random() * topics.length)];
+    return null;
   }
 
   const availableCategories = [...new Set(unusedTopics.map(topic => topic.category))];
@@ -604,6 +614,10 @@ async function createGuideFile(topic, content, imageData) {
   const filename = createFilename(topic.title);
   const filepath = path.join(GUIDES_DIR, filename);
 
+  if (fs.existsSync(filepath)) {
+    throw new Error(`Refusing to overwrite existing guide: ${filename}`);
+  }
+
   const date = new Date().toISOString().split('T')[0];
   const description = generateDescription(topic);
 
@@ -829,17 +843,30 @@ async function main() {
   try {
     console.log('Starting guide generation...');
 
-    // Check for API key
-    if (!process.env.NVIDIA_API_KEY) {
-      throw new Error('NVIDIA_API_KEY environment variable is not set');
-    }
-
     // Load topics
     const { topics, generatedTopics } = loadTopics();
     console.log(`Loaded ${topics.length} topics, ${generatedTopics.length} already generated`);
 
+    const existingGuideTitles = loadExistingGuideTitles();
+    const usedTitles = new Set([...generatedTopics, ...existingGuideTitles]);
+
     // Select topic
-    const topic = selectNextTopic(topics, generatedTopics);
+    const topic = selectNextTopic(topics, usedTitles, generatedTopics);
+    if (!topic) {
+      console.log('All configured article titles have been generated. Nothing to do; pausing cleanly.');
+      return;
+    }
+
+    // Only require the API key when there is actually an article to generate.
+    if (!process.env.NVIDIA_API_KEY) {
+      throw new Error('NVIDIA_API_KEY environment variable is not set');
+    }
+
+    const targetFilename = createFilename(topic.title);
+    if (fs.existsSync(path.join(GUIDES_DIR, targetFilename))) {
+      throw new Error(`Refusing to overwrite existing guide: ${targetFilename}`);
+    }
+
     console.log(`Selected topic: ${topic.title} (${topic.category})`);
 
     // Generate content
@@ -880,4 +907,8 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { main };
+module.exports = {
+  main,
+  loadExistingGuideTitles,
+  selectNextTopic
+};
