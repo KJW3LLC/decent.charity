@@ -37,7 +37,10 @@ jobs:
 
       - name: Check for changes
         id: git-check
-        run: git diff --exit-code _guides/ assets/images/guides/ || echo "changes=true" >> $GITHUB_OUTPUT
+        run: |
+          if [[ -n "$(git status --porcelain --untracked-files=all -- _guides/ assets/images/guides/)" ]]; then
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Commit and push image
         if: steps.git-check.outputs.changes == 'true'
