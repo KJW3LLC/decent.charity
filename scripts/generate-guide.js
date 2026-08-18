@@ -446,7 +446,7 @@ function generateDescription(topic) {
 // Generate article image prompt from topic
 function generateImagePrompt(topic) {
   return {
-    prompt: `Editorial city street photo about community support in the ${topic.category.replace(/-/g, ' ')} category. Documentary urban streetscape, natural light, candid realism, respectful hopeful mood. Rich black and white with exactly one prominent element in one primary color: red, blue, or yellow. ZERO TEXT OR TEXT-LIKE MARKS: no title, organization name, letters, words, numbers, captions, logos, branding, storefront lettering, signs, posters, ads, labels, packaging text, license plates, watermarks, or signatures, including blurred, partial, invented, or illegible writing. Avoid surfaces that normally display writing.`,
+    prompt: `Documentary urban street photo representing community support in the ${topic.category.replace(/-/g, ' ')} category. Natural light, candid realism, respectful hopeful mood. Rich black and white with exactly one prominent red, blue, or yellow element. Every visible surface is blank and unmarked. The image contains no text, letters, numbers, logos, signs, labels, packaging, or watermarks.`,
     negative_prompt: `text, letters, words, numbers, captions, typography, logos, branding, storefront lettering, signs, posters, advertisements, labels, packaging text, license plates, watermark, signature, glyphs, symbols, multiple colored elements, full color, sepia, exploitative imagery, staged hardship, identifiable vulnerable people`
   };
 }
